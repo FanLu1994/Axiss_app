@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style scoped>
-
+div{
+  font-family: modeng;
+}
 </style>

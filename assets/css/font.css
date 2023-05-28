@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'leefont';
+  font-weight: normal;
+  src: url('../font/leefont.ttf') format('truetype');
+}
+
+.iconfont {
+  font-family: 'leefont' !important;
+  font-size: 16px;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'deyihei';
+  font-weight: normal;
+  src: url('../font/deyihei.ttf') format('truetype');
+}
+
+.iconfont {
+  font-family: 'deyihei' !important;
+  font-size: 16px;
+  font-style: normal;
+}
