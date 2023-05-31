@@ -38,7 +38,7 @@
     "@nuxtjs/eslint-module": "^3.1.0",
     "@nuxtjs/tailwindcss": "^5.3.3",
     "autoprefixer": "^10.4.14",
-    "chromedriver": "^106.0.1",
+    "chromedriver": "^113.0.0",
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-nuxt": "^4.0.0",
