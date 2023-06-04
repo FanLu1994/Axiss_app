@@ -1,6 +1,7 @@
 <template>
   <div >
     <div class="mb-2">
+<!--      <button class="btn btn-success btn-sm py-0 text-sm leading-3	">更新</button>-->
       <button class="btn btn-success btn-sm py-0 text-sm leading-3	">复制</button>
     </div>
     <div v-html="mdText" class="prose markdown" :class="theme"></div>
@@ -9,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import {onBeforeMount, ref} from "vue";
+import {onBeforeMount, ref, toRefs, watch} from "vue";
 import {marked} from "marked";
 
 const props = defineProps({
@@ -19,13 +20,21 @@ const props = defineProps({
   }
 })
 
+const raw = toRefs(props).rawText
+watch(raw,(newV,oldV)=>{
+  mdText.value = marked(props.rawText)
+})
+
 const theme = "default-md"
 const mdText = ref("")
 
 onBeforeMount(()=>{
-  console.log(props.rawText)
   mdText.value = marked(props.rawText)
 })
+
+const updateMd = ()=>{
+  mdText.value = marked(props.rawText)
+}
 
 
 </script>
