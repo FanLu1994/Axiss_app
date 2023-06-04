@@ -1,0 +1,51 @@
+<template>
+  <div >
+    <div class="mb-2">
+      <button class="btn btn-success btn-sm py-0 text-sm leading-3	">复制</button>
+    </div>
+    <div v-html="mdText" class="prose markdown" :class="theme"></div>
+  </div>
+
+</template>
+
+<script lang="ts" setup>
+import {onBeforeMount, ref} from "vue";
+import {marked} from "marked";
+
+const props = defineProps({
+  rawText:{
+    type:String,
+    required:true,
+  }
+})
+
+const theme = "default-md"
+const mdText = ref("")
+
+onBeforeMount(()=>{
+  console.log(props.rawText)
+  mdText.value = marked(props.rawText)
+})
+
+
+</script>
+
+<style scoped lang="scss">
+@import "@/assets/css/wechat_theme/default.scss";
+
+.markdown{
+  margin: 0 -20px;
+  width: 375px;
+  padding: 20px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0 0 60px rgba(0,0,0,0.1);
+  height: 90%;
+  overflow: auto;
+}
+
+h2 {
+  background: #ff0000;
+}
+
+</style>
