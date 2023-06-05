@@ -2,16 +2,18 @@
   <div >
     <div class="mb-2">
 <!--      <button class="btn btn-success btn-sm py-0 text-sm leading-3	">更新</button>-->
-      <button class="btn btn-success btn-sm py-0 text-sm leading-3	">复制</button>
+      <button class="btn btn-success btn-sm py-0 text-sm leading-3	" @click="copy">复制</button>
     </div>
-    <div v-html="mdText" class="prose markdown" :class="theme"></div>
+    <div v-html="mdText" id="preview" class="prose markdown" :class="theme"></div>
   </div>
-
 </template>
 
 <script lang="ts" setup>
 import {onBeforeMount, ref, toRefs, watch} from "vue";
 import {marked} from "marked";
+
+import { useToast } from 'vue-toast-notification';
+const toast = useToast();
 
 const props = defineProps({
   rawText:{
@@ -37,6 +39,29 @@ const updateMd = ()=>{
 }
 
 
+const copy = ()=>{
+  let clipboardDiv = document.getElementById('preview')!
+  clipboardDiv.focus();
+  window.getSelection()!.removeAllRanges();
+  let range = document.createRange();
+  range.setStartBefore(clipboardDiv.firstChild!);
+  range.setEndAfter(clipboardDiv.lastChild!);
+  window.getSelection()!.addRange(range);
+
+  try {
+    if (document.execCommand('copy')) {
+      alert("复制成功")
+      this.$toast.show()
+    } else {
+      alert("复制失败")
+    }
+  } catch (err) {
+    alert("复制失败")
+  }
+
+}
+
+
 </script>
 
 <style scoped lang="scss">
@@ -53,8 +78,6 @@ const updateMd = ()=>{
   overflow: auto;
 }
 
-h2 {
-  background: #ff0000;
-}
+
 
 </style>

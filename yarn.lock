@@ -968,6 +968,70 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     "to-fast-properties" "^2.0.0"
 
+"@codemirror/autocomplete@^6.0.0":
+  "integrity" "sha512-hSxf9S0uB+GV+gBsjY1FZNo53e1FFdzPceRfCfD1gWOnV6o21GfB5J5Wg9G/4h76XZMPrF0A6OCK/Rz5+V1egg=="
+  "resolved" "https://registry.npmmirror.com/@codemirror/autocomplete/-/autocomplete-6.7.1.tgz"
+  "version" "6.7.1"
+  dependencies:
+    "@codemirror/language" "^6.0.0"
+    "@codemirror/state" "^6.0.0"
+    "@codemirror/view" "^6.6.0"
+    "@lezer/common" "^1.0.0"
+
+"@codemirror/commands@^6.0.0":
+  "integrity" "sha512-42lmDqVH0ttfilLShReLXsDfASKLXzfyC36bzwcqzox9PlHulMcsUOfHXNo2X2aFMVNUoQ7j+d4q5bnfseYoOA=="
+  "resolved" "https://registry.npmmirror.com/@codemirror/commands/-/commands-6.2.4.tgz"
+  "version" "6.2.4"
+  dependencies:
+    "@codemirror/language" "^6.0.0"
+    "@codemirror/state" "^6.2.0"
+    "@codemirror/view" "^6.0.0"
+    "@lezer/common" "^1.0.0"
+
+"@codemirror/language@^6.0.0":
+  "integrity" "sha512-4SMwe6Fwn57klCUsVN0y4/h/iWT+XIXFEmop2lIHHuWO0ubjCrF3suqSZLyOQlznxkNnNbOOfKe5HQbQGCAmTg=="
+  "resolved" "https://registry.npmmirror.com/@codemirror/language/-/language-6.7.0.tgz"
+  "version" "6.7.0"
+  dependencies:
+    "@codemirror/state" "^6.0.0"
+    "@codemirror/view" "^6.0.0"
+    "@lezer/common" "^1.0.0"
+    "@lezer/highlight" "^1.0.0"
+    "@lezer/lr" "^1.0.0"
+    "style-mod" "^4.0.0"
+
+"@codemirror/lint@^6.0.0":
+  "integrity" "sha512-kHGuynBHjqinp1Bx25D2hgH8a6Fh1m9rSmZFzBVTqPIXDIcZ6j3VI67DY8USGYpGrjrJys9R52eLxtfERGNozg=="
+  "resolved" "https://registry.npmmirror.com/@codemirror/lint/-/lint-6.2.2.tgz"
+  "version" "6.2.2"
+  dependencies:
+    "@codemirror/state" "^6.0.0"
+    "@codemirror/view" "^6.0.0"
+    "crelt" "^1.0.5"
+
+"@codemirror/search@^6.0.0":
+  "integrity" "sha512-64/M40YeJPToKvGO6p3fijo2vwUEj4nACEAXElCaYQ50HrXSvRaK+NHEhSh73WFBGdvIdhrV+lL9PdJy2RfCYA=="
+  "resolved" "https://registry.npmmirror.com/@codemirror/search/-/search-6.5.0.tgz"
+  "version" "6.5.0"
+  dependencies:
+    "@codemirror/state" "^6.0.0"
+    "@codemirror/view" "^6.0.0"
+    "crelt" "^1.0.5"
+
+"@codemirror/state@^6.0.0", "@codemirror/state@^6.1.4", "@codemirror/state@^6.2.0":
+  "integrity" "sha512-RupHSZ8+OjNT38zU9fKH2sv+Dnlr8Eb8sl4NOnnqz95mCFTZUaiRP8Xv5MeeaG0px2b8Bnfe7YGwCV3nsBhbuw=="
+  "resolved" "https://registry.npmmirror.com/@codemirror/state/-/state-6.2.1.tgz"
+  "version" "6.2.1"
+
+"@codemirror/view@^6.0.0", "@codemirror/view@^6.6.0":
+  "integrity" "sha512-oXTfJzHJ5Tl7f6T8ZO0HKf981zubxgKohjddLobbntbNZHlOZGMRL+pPZGtclDWFaFJWtGBYRGyNdjQ6Xsx5yA=="
+  "resolved" "https://registry.npmmirror.com/@codemirror/view/-/view-6.13.0.tgz"
+  "version" "6.13.0"
+  dependencies:
+    "@codemirror/state" "^6.1.4"
+    "style-mod" "^4.0.0"
+    "w3c-keyname" "^2.2.4"
+
 "@colors/colors@1.5.0":
   "integrity" "sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ=="
   "resolved" "https://registry.npmjs.org/@colors/colors/-/colors-1.5.0.tgz"
@@ -1319,6 +1383,25 @@
     "koa-compose" "^4.1.0"
     "methods" "^1.1.2"
     "path-to-regexp" "^6.1.0"
+
+"@lezer/common@^1.0.0":
+  "integrity" "sha512-JH4wAXCgUOcCGNekQPLhVeUtIqjH0yPBs7vvUdSjyQama9618IOKFJwkv2kcqdhF0my8hQEgCTEJU0GIgnahvA=="
+  "resolved" "https://registry.npmmirror.com/@lezer/common/-/common-1.0.3.tgz"
+  "version" "1.0.3"
+
+"@lezer/highlight@^1.0.0":
+  "integrity" "sha512-cmSJYa2us+r3SePpRCjN5ymCqCPv+zyXmDl0ciWtVaNiORT/MxM7ZgOMQZADD0o51qOaOg24qc/zBViOIwAjJg=="
+  "resolved" "https://registry.npmmirror.com/@lezer/highlight/-/highlight-1.1.6.tgz"
+  "version" "1.1.6"
+  dependencies:
+    "@lezer/common" "^1.0.0"
+
+"@lezer/lr@^1.0.0":
+  "integrity" "sha512-IDhcWjfxwWACnatUi0GzWBCbochfqxo3LZZlS27LbJh8RVYYXXyR5Ck9659IhkWkhSW/kZlaaiJpUO+YZTUK+Q=="
+  "resolved" "https://registry.npmmirror.com/@lezer/lr/-/lr-1.3.6.tgz"
+  "version" "1.3.6"
+  dependencies:
+    "@lezer/common" "^1.0.0"
 
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   "integrity" "sha512-54/JRvkLIzzDWshCWfuhadfrfZVPiElY8Fcgmg1HroEly/EDSszzhBAsarCux+D/kOslTRquNzuyGSmUSTTHGg=="
@@ -3816,6 +3899,19 @@
   "resolved" "https://registry.npmmirror.com/code-point-at/-/code-point-at-1.1.0.tgz"
   "version" "1.1.0"
 
+"codemirror@^6.0.1":
+  "integrity" "sha512-J8j+nZ+CdWmIeFIGXEFbFPtpiYacFMDR8GlHK3IyHQJMCaVRfGx9NT+Hxivv1ckLWPvNdZqndbr/7lVhrf/Svg=="
+  "resolved" "https://registry.npmmirror.com/codemirror/-/codemirror-6.0.1.tgz"
+  "version" "6.0.1"
+  dependencies:
+    "@codemirror/autocomplete" "^6.0.0"
+    "@codemirror/commands" "^6.0.0"
+    "@codemirror/language" "^6.0.0"
+    "@codemirror/lint" "^6.0.0"
+    "@codemirror/search" "^6.0.0"
+    "@codemirror/state" "^6.0.0"
+    "@codemirror/view" "^6.0.0"
+
 "collection-visit@^1.0.0":
   "integrity" "sha512-lNkKvzEeMBBjUGHZ+q6z9pSJla0KWAQPvtzhEV9+iGyQYG+pBpl7xKDhxoNSOZH2hhv0v5k0y2yAM4o4SjoSkw=="
   "resolved" "https://registry.npmmirror.com/collection-visit/-/collection-visit-1.0.0.tgz"
@@ -4129,6 +4225,11 @@
   "integrity" "sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ=="
   "resolved" "https://registry.npmjs.org/create-require/-/create-require-1.1.1.tgz"
   "version" "1.1.1"
+
+"crelt@^1.0.5":
+  "integrity" "sha512-VQ2MBenTq1fWZUH9DJNGti7kKv6EeAuYr3cLwxUWhIu1baTaXh4Ib5W2CqHVqib4/MqbYGJqiL3Zb8GJZr3l4g=="
+  "resolved" "https://registry.npmmirror.com/crelt/-/crelt-1.0.6.tgz"
+  "version" "1.0.6"
 
 "cross-spawn@^7.0.2", "cross-spawn@^7.0.3":
   "integrity" "sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w=="
@@ -11011,6 +11112,11 @@
   dependencies:
     "acorn" "^8.8.2"
 
+"style-mod@^4.0.0":
+  "integrity" "sha512-78Jv8kYJdjbvRwwijtCevYADfsI0lGzYJe4mMFdceO8l75DFFDoqBhR1jVDicDRRaX4//g1u9wKeo+ztc2h1Rw=="
+  "resolved" "https://registry.npmmirror.com/style-mod/-/style-mod-4.0.3.tgz"
+  "version" "4.0.3"
+
 "style-resources-loader@^1.5.0":
   "integrity" "sha512-fIfyvQ+uvXaCBGGAgfh+9v46ARQB1AWdaop2RpQw0PBVuROsTBqGvx8dj0kxwjGOAyq3vepe4AOK3M6+Q/q2jw=="
   "resolved" "https://registry.npmjs.org/style-resources-loader/-/style-resources-loader-1.5.0.tgz"
@@ -11968,6 +12074,11 @@
   "version" "1.0.2"
   dependencies:
     "browser-process-hrtime" "^1.0.0"
+
+"w3c-keyname@^2.2.4":
+  "integrity" "sha512-XB8aa62d4rrVfoZYQaYNy3fy+z4nrfy2ooea3/0BnBzXW0tSdZ+lRgjzBZhk0La0H6h8fVyYCxx/qkQcAIuvfg=="
+  "resolved" "https://registry.npmmirror.com/w3c-keyname/-/w3c-keyname-2.2.7.tgz"
+  "version" "2.2.7"
 
 "w3c-xmlserializer@^3.0.0":
   "integrity" "sha512-3WFqGEgSXIyGhOmAFtlicJNMjEps8b1MG31NCA0/vOF9+nKMUW1ckhi9cnNHmf88Rzw5V+dwIwsm2C7X8k9aQg=="

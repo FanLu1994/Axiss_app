@@ -46,6 +46,7 @@ export default {
     '@nuxtjs/style-resources',
   ],
 
+
   server:{
     port: 1818,
     host: '0.0.0.0'
