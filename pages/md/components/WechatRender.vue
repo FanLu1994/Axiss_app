@@ -9,19 +9,11 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  ComponentInternalInstance,
-  getCurrentInstance,
-  nextTick,
-  onBeforeMount,
-  onMounted,
-  ref,
-  toRefs,
-  watch
-} from "vue";
+import {onBeforeMount, onMounted, ref, toRefs, watch} from "vue";
 import {marked} from "marked";
 
-import { useToast } from 'vue-toast-notification';
+import { useToast} from "vue-toast-notification";
+
 const toast = useToast();
 
 const props = defineProps({
@@ -40,13 +32,16 @@ const theme = "default-md"
 const mdText = ref("")
 
 onBeforeMount(()=>{
-  mdText.value = marked(props.rawText)
+  setTimeout(()=>{
+    mdText.value = marked(props.rawText)
+  },500)
+
   console.log(mdText.value)
 })
 
 onMounted(()=>{
   toast.success("复制成功",{
-    dismissible:false
+    position: 'top',
   })
 })
 
@@ -64,14 +59,21 @@ const copy = ()=>{
   range.setEndAfter(clipboardDiv.lastChild!);
   window.getSelection()!.addRange(range);
 
+
   try {
     if (document.execCommand('copy')) {
-      toast.success("复制成功")
+      toast.success("复制成功",{
+        position: 'top',
+      })
     } else {
-      toast.error("复制失败")
+      toast.error("复制失败",{
+        position: 'top',
+      })
     }
   } catch (err) {
-    toast.error("复制失败")
+    toast.error("复制失败",{
+      position: 'top',
+    })
   }
 
 }

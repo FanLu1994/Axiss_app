@@ -24,7 +24,8 @@ export default defineNuxtConfig({
   css:[
     '@/assets/css/main.css',
     '@/assets/css/font.css',
-    '@/assets/css/wechat_theme/index.scss'
+    '@/assets/css/wechat_theme/index.scss',
+    'vue-toast-notification/dist/theme-default.css'
   ],
 
   modules:[
