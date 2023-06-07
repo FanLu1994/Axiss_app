@@ -39,11 +39,6 @@ onBeforeMount(()=>{
   console.log(mdText.value)
 })
 
-onMounted(()=>{
-  toast.success("复制成功",{
-    position: 'top',
-  })
-})
 
 const updateMd = ()=>{
   mdText.value = marked(props.rawText)
