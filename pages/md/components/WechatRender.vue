@@ -9,7 +9,16 @@
 </template>
 
 <script lang="ts" setup>
-import {onBeforeMount, ref, toRefs, watch} from "vue";
+import {
+  ComponentInternalInstance,
+  getCurrentInstance,
+  nextTick,
+  onBeforeMount,
+  onMounted,
+  ref,
+  toRefs,
+  watch
+} from "vue";
 import {marked} from "marked";
 
 import { useToast } from 'vue-toast-notification';
@@ -32,6 +41,13 @@ const mdText = ref("")
 
 onBeforeMount(()=>{
   mdText.value = marked(props.rawText)
+  console.log(mdText.value)
+})
+
+onMounted(()=>{
+  toast.success("复制成功",{
+    dismissible:false
+  })
 })
 
 const updateMd = ()=>{
@@ -50,13 +66,12 @@ const copy = ()=>{
 
   try {
     if (document.execCommand('copy')) {
-      alert("复制成功")
-      this.$toast.show()
+      toast.success("复制成功")
     } else {
-      alert("复制失败")
+      toast.error("复制失败")
     }
   } catch (err) {
-    alert("复制失败")
+    toast.error("复制失败")
   }
 
 }

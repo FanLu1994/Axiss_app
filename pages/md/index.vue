@@ -60,7 +60,6 @@
         </textarea>
       </div>
       <div class="w-1/2 flex justify-center  bg-white rounded-md py-2 " >
-<!--        <span v-html="mdtext" class="markdown overflow-auto"></span>-->
         <wechat-render :raw-text="rawText"></wechat-render>
       </div>
 
@@ -210,14 +209,9 @@ const rawText = ref(
   "\n"
 )
 
-onMounted(()=>{
-  mdtext.value = marked(rawText.value)
-})
-const mdtext = ref("# 1234")
 
 const changeMd = ()=>{
   console.log(rawText)
-  mdtext.value = marked(rawText.value)
 }
 
 </script>
