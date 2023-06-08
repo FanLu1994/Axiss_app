@@ -9,10 +9,10 @@
 </template>
 
 <script lang="ts" setup>
-import {onBeforeMount, onMounted, ref, toRefs, watch} from "vue";
+import {nextTick, onBeforeMount, onMounted, ref, toRefs, watch} from "vue";
 import {marked} from "marked";
-
 import {ElMessage} from "element-plus";
+import Prism from 'prismjs'
 
 const props = defineProps({
   rawText:{
@@ -22,8 +22,10 @@ const props = defineProps({
 })
 
 const raw = toRefs(props).rawText
-watch(raw,(newV,oldV)=>{
+watch(raw,async (newV,oldV)=>{
   mdText.value = marked(props.rawText)
+  await nextTick()
+  Prism.highlightAll()
 })
 
 const theme = "default-md"

@@ -54,6 +54,7 @@
     <div class="flex justify-between space-x-2 " style="height: 90vh">
       <div class="w-1/2 flex justify-center  bg-white rounded-md py-2 px-2 ">
         <textarea class="textarea textarea-bordered w-full h-full overflow-y-scroll md-input"
+                  id="editor"
                   v-model="rawText"
                   @change="changeMd"
                   placeholder="请粘贴你的markdown内容">
