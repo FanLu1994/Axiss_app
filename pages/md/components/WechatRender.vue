@@ -12,9 +12,7 @@
 import {onBeforeMount, onMounted, ref, toRefs, watch} from "vue";
 import {marked} from "marked";
 
-import { useToast} from "vue-toast-notification";
-
-const toast = useToast();
+const { $toast } = useNuxtApp();
 
 const props = defineProps({
   rawText:{
@@ -57,16 +55,16 @@ const copy = ()=>{
 
   try {
     if (document.execCommand('copy')) {
-      toast.success("复制成功",{
+      $toast.success("复制成功",{
         position: 'top',
       })
     } else {
-      toast.error("复制失败",{
+      $toast.error("复制失败",{
         position: 'top',
       })
     }
   } catch (err) {
-    toast.error("复制失败",{
+    $toast.error("复制失败",{
       position: 'top',
     })
   }
