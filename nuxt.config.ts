@@ -1,4 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import ElementPlus from 'unplugin-element-plus/vite'
+
 export default defineNuxtConfig({
   devtools: { enabled: false },
   app:{
@@ -25,20 +30,12 @@ export default defineNuxtConfig({
     '@/assets/css/main.css',
     '@/assets/css/font.css',
     '@/assets/css/wechat_theme/index.scss',
-    'vue-toast-notification/dist/theme-default.css'
   ],
 
   modules:[
     '@nuxtjs/tailwindcss',
-  ],
+    '@element-plus/nuxt'
 
-  // vite: {
-  //   css: {
-  //     preprocessorOptions: {
-  //       scss: {
-  //         additionalData: '@import "assets/css/wechat_theme/index.scss";',
-  //       }
-  //     }
-  //   }
-  // }
+  ],
+  elementPlus: { /** Options */ },
 })

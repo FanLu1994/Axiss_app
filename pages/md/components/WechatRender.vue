@@ -12,7 +12,7 @@
 import {onBeforeMount, onMounted, ref, toRefs, watch} from "vue";
 import {marked} from "marked";
 
-const { $toast } = useNuxtApp();
+import {ElMessage} from "element-plus";
 
 const props = defineProps({
   rawText:{
@@ -55,18 +55,12 @@ const copy = ()=>{
 
   try {
     if (document.execCommand('copy')) {
-      $toast.success("复制成功",{
-        position: 'top',
-      })
+      ElMessage.success("复制成功")
     } else {
-      $toast.error("复制失败",{
-        position: 'top',
-      })
+      ElMessage.error("复制失败")
     }
   } catch (err) {
-    $toast.error("复制失败",{
-      position: 'top',
-    })
+    ElMessage.error("复制失败")
   }
 
 }
