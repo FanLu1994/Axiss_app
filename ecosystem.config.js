@@ -4,8 +4,8 @@ module.exports = {
             name: 'Axiss',
             port: '1818',
             exec_mode: 'cluster',
-            instances: 'max',
-            script: './.output/server/index.mjs'
+            instances: '1',
+            script: '.output/server/index.mjs'
         }
     ]
 }
