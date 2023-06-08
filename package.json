@@ -25,7 +25,7 @@
     "marked": "^5.0.5",
     "node-sass": "^6.0.1",
     "prismjs": "^1.29.0",
-    "sass-loader": "^10.0.1",
+    "sass-loader": "^13.3.1",
     "unplugin-auto-import": "^0.16.4",
     "unplugin-element-plus": "^0.7.1",
     "unplugin-vue-components": "^0.25.1",
