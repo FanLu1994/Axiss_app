@@ -6,48 +6,34 @@
       </div>
       <div class="flex justify-center items-center space-x-2" style="width: 400px">
         <div class="whitespace-nowrap w-fit">主题选择</div>
-        <select class="select select-secondary select-sm w-1/2 max-w-xs" placeholder="1111">
+        <select class="select select-secondary select-sm w-1/2 max-w-xs"
+                @change="changeTheme"
+                v-model="selectTheme"
+                placeholder="1111">
           <option disabled selected>请选择样式</option>
-          <option>Java</option>
-          <option>Go</option>
-          <option>C</option>
-          <option>C#</option>
-          <option>C++</option>
-          <option>Rust</option>
-          <option>JavaScript</option>
-          <option>Python</option>
+          <option v-for="(theme,index) in themesList" :value="theme">{{theme}}</option>
         </select>
       </div>
       <div class="flex justify-center items-center space-x-2" style="width: 400px">
         <div class="whitespace-nowrap w-fit">字体样式</div>
-        <select class="select select-secondary select-sm w-1/2 max-w-xs" placeholder="1111">
-          <option disabled selected>请选择样式</option>
-          <option>Java</option>
-          <option>Go</option>
-          <option>C</option>
-          <option>C#</option>
-          <option>C++</option>
-          <option>Rust</option>
-          <option>JavaScript</option>
-          <option>Python</option>
+        <select class="select select-secondary select-sm w-1/2 max-w-xs"
+                v-model="selectFont"
+                placeholder="1111">
+          <option disabled selected>请选择字体</option>
+          <option v-for="(item,index) in fontList" :value="item.value">{{item.label}}</option>
         </select>
       </div>
       <div class="flex justify-center items-center space-x-2" style="width: 400px">
         <div class="whitespace-nowrap w-fit">字体大小</div>
-        <select class="select select-secondary select-sm w-1/2 max-w-xs" placeholder="1111">
-          <option disabled selected>请选择样式</option>
-          <option>Java</option>
-          <option>Go</option>
-          <option>C</option>
-          <option>C#</option>
-          <option>C++</option>
-          <option>Rust</option>
-          <option>JavaScript</option>
-          <option>Python</option>
+        <select class="select select-secondary select-sm w-1/2 max-w-xs"
+                v-model="selectFontSize"
+                placeholder="1111">
+          <option disabled selected>请选择字体大小</option>
+          <option v-for="(item,index) in 30" :value="item+11">{{item+11}}</option>
         </select>
       </div>
       <div class="flex justify-end items-center space-x-2 " style="width: 400px;margin-left: auto">
-        <button class="btn btn-primary btn-sm py-0 text-sm leading-3	">关于</button>
+        <button class="btn btn-primary btn-sm py-0 text-sm leading-3	" @click="gotoGithub">关于</button>
 
       </div>
     </div>
@@ -61,7 +47,9 @@
         </textarea>
       </div>
       <div class="w-1/2 flex justify-center  bg-white rounded-md py-2 " >
-        <wechat-render :raw-text="rawText"></wechat-render>
+        <wechat-render :raw-text="rawText" :theme="selectTheme"
+                       :font-size="selectFontSize"
+                       :font="selectFont"></wechat-render>
       </div>
 
     </div>
@@ -71,7 +59,7 @@
 
 <script lang="ts" setup>
 import MyComponent from "~/pages/md/components/MyComponent.vue";
-import {onMounted, ref} from "vue";
+import {onMounted, ref, toRef} from "vue";
 import {marked} from "marked";
 import WechatRender from "~/pages/md/components/WechatRender.vue";
 
@@ -211,8 +199,46 @@ const rawText = ref(
 )
 
 
+const themesList = ref([
+    'orangeheart',
+    'virgo',
+    'redefine',
+    'haru'
+])
+const selectTheme = toRef(themesList.value[0])
+
+const fontList = ref([
+  {
+    label:"默认",
+    value:""
+  },
+  {
+    label:"得意黑",
+    value:"deyihei"
+  },
+  {
+    label:"三级泼墨体",
+    value:"sanjipomo"
+  },
+  {
+    label:"字帮玩酷体",
+    value:"zibangwankuti"
+  }
+])
+const selectFont = toRef(fontList.value[0].value)
+
+const selectFontSize = ref(16)
+
 const changeMd = ()=>{
   console.log(rawText)
+}
+
+const changeTheme = (e:any)=>{
+  console.log(e.target.value) // 选择项的value
+}
+
+const gotoGithub = ()=>{
+  window.open("https://github.com/FanLu1994/Axiss_app")
 }
 
 </script>

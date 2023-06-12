@@ -1,0 +1,28 @@
+
+.deyihei{
+  @font-face {
+    font-family: 'deyihei';
+    font-weight: normal;
+    src: url('../../font/deyihei.ttf') format('truetype');
+  }
+  font-family: deyihei !important;
+}
+
+.sanjipomo{
+  @font-face {
+    font-family: 'sanjipomo';
+    font-weight: normal;
+    src: url('../../font/三极泼墨体.ttf') format('truetype');
+  }
+  font-family: sanjipomo !important;
+}
+
+.zibangwankuti{
+  @font-face {
+    font-family: 'zibangwankuti';
+    font-weight: normal;
+    src: url('../../font/字帮玩酷体.ttf') format('truetype');
+  }
+  font-family: zibangwankuti !important;
+}
+

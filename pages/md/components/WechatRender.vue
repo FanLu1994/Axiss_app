@@ -2,14 +2,15 @@
   <div >
     <div class="mb-2">
 <!--      <button class="btn btn-success btn-sm py-0 text-sm leading-3	">更新</button>-->
-      <button class="btn btn-success btn-sm py-0 text-sm leading-3	" @click="copy">复制</button>
+      <button class="btn btn-success btn-sm py-0 text-sm leading-3" @click="copy">复制</button>
     </div>
-    <div v-html="mdText" id="preview" class="prose markdown" :class="theme"></div>
+    <div v-html="mdText" id="preview" class="prose markdown" :class="classList"
+         :style="{fontSize:fontSize+'px'}"></div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import {nextTick, onBeforeMount, onMounted, ref, toRefs, watch} from "vue";
+import {computed, nextTick, onBeforeMount, onMounted, ref, toRefs, watch} from "vue";
 import {marked} from "marked";
 import {ElMessage} from "element-plus";
 import Prism from 'prismjs'
@@ -18,27 +19,48 @@ const props = defineProps({
   rawText:{
     type:String,
     required:true,
+  },
+  theme:{
+    type:String,
+  },
+  font:{
+    type:String,
+  },
+  fontSize:{
+    type:Number,
+    required:true,
   }
 })
 
 const raw = toRefs(props).rawText
-watch(raw,async (newV,oldV)=>{
+watch(props,async (newV,oldV)=>{
+  console.log(props.theme)
+  console.log(props.fontSize)
   mdText.value = marked(props.rawText)
   await nextTick()
   Prism.highlightAll()
 })
 
-const theme = "default-md"
+const classList = computed(()=>{
+  return props.theme+" "+props.font
+})
+
+// const currentTheme = toRefs(props).theme
+// watch(currentTheme,(newV,oldV)=>{
+//   console.log(props.theme)
+// })
+
 const mdText = ref("")
 
 onBeforeMount(()=>{
   setTimeout(()=>{
     mdText.value = marked(props.rawText)
   },500)
-
-  console.log(mdText.value)
 })
 
+onMounted(()=>{
+  Prism.highlightAll()
+})
 
 const updateMd = ()=>{
   mdText.value = marked(props.rawText)
