@@ -58,7 +58,6 @@
 </template>
 
 <script lang="ts" setup>
-import MyComponent from "~/pages/md/components/MyComponent.vue";
 import {onMounted, ref, toRef} from "vue";
 import {marked} from "marked";
 import WechatRender from "~/pages/md/components/WechatRender.vue";
@@ -245,7 +244,7 @@ const gotoGithub = ()=>{
 
 <style scoped>
 .md-input::-webkit-scrollbar-thumb{
-  background: green;
+  background: #dddddd;
   border-radius:10px;
 }
 

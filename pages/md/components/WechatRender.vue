@@ -14,6 +14,7 @@ import {computed, nextTick, onBeforeMount, onMounted, ref, toRefs, watch} from "
 import {marked} from "marked";
 import {ElMessage} from "element-plus";
 import Prism from 'prismjs'
+import {useFetch} from "#app";
 
 const props = defineProps({
   rawText:{
@@ -34,21 +35,58 @@ const props = defineProps({
 
 const raw = toRefs(props).rawText
 watch(props,async (newV,oldV)=>{
-  console.log(props.theme)
-  console.log(props.fontSize)
   mdText.value = marked(props.rawText)
   await nextTick()
   Prism.highlightAll()
+  getAllLink()
 })
 
 const classList = computed(()=>{
   return props.theme+" "+props.font
 })
 
-// const currentTheme = toRefs(props).theme
-// watch(currentTheme,(newV,oldV)=>{
-//   console.log(props.theme)
-// })
+
+const getAllLink = async ()=>{
+  const ele = document.getElementById('preview')
+  const links = ele!.getElementsByTagName("a")
+  let linkList = []
+  for (let i = 0; i < links.length; i++) {
+    // TODO:添加元素到html
+    const { data, pending, error, refresh } = await useFetch("http://localhost:7777/md/get_website_title",{
+       query:{
+         url:links[i].href
+       }
+     })
+    console.log(data.value)
+    console.log(data.value.result)
+    console.log(error)
+    if(error.value){
+      linkList.push({
+        link:links[i].href,
+        title:""
+      })
+    }else{
+      linkList.push({
+        link:links[i].href,
+        title:data.value.result
+      })
+    }
+  }
+  console.log(linkList)
+  mdText.value+="\n"
+  for (let i = 0; i < linkList.length; i++) {
+    if(linkList[i].title!==""){
+      mdText.value += `<p >[${i}] ${linkList[i].title}(${linkList[i].link})</p>`
+    }else{
+      mdText.value += `<p>[${i}] ${linkList[i].link}</p>`
+    }
+  }
+  setTimeout(()=>{
+    Prism.highlightAll()
+  },200)
+
+}
+
 
 const mdText = ref("")
 
@@ -62,10 +100,6 @@ onMounted(()=>{
   Prism.highlightAll()
 })
 
-const updateMd = ()=>{
-  mdText.value = marked(props.rawText)
-}
-
 
 const copy = ()=>{
   let clipboardDiv = document.getElementById('preview')!
@@ -75,7 +109,6 @@ const copy = ()=>{
   range.setStartBefore(clipboardDiv.firstChild!);
   range.setEndAfter(clipboardDiv.lastChild!);
   window.getSelection()!.addRange(range);
-
 
   try {
     if (document.execCommand('copy')) {
@@ -104,6 +137,17 @@ const copy = ()=>{
   box-shadow: 0 0 60px rgba(0,0,0,0.1);
   height: 90%;
   overflow: auto;
+  border-radius: 10px;
+}
+
+
+.markdown::-webkit-scrollbar {
+  //display: none;
+}
+
+.markdown::-webkit-scrollbar-thumb{
+  background: #dddddd;
+  border-radius: 20px;
 }
 
 
