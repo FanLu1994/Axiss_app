@@ -10,5 +10,9 @@ export const menu = [
     {
         name:'微信markdown',
         url:'/md'
+    },
+    {
+        name:'Webassembly',
+        url:'/newPage'
     }
 ]

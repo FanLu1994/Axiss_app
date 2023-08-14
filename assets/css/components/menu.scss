@@ -1,0 +1,22 @@
+.menu-page{
+  background: #fafafa;
+  height: 100vh;
+  display: flex;
+  padding: 10px 10px;
+
+  .menu-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 160px;
+    height: 160px;
+    border-radius: 12px;
+    background: #fafafa;
+    box-shadow:  31px 31px 63px #9b9b9b,
+    -31px -31px 63px #ffffff;
+    margin: 2px 4px;
+  }
+
+}
+

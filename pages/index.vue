@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center ">
+  <div class="menu-page">
     <menu-item v-for="menuitem in menu" :name="menuitem.name" :url="menuitem.url">
     </menu-item>
   </div>
@@ -14,3 +14,6 @@ import {menu} from "~/constant/menus"
 
 const hello = ref("Hello world!")
 </script>
+<style scoped lang="scss">
+@import "@/assets/css/components/menu.scss";
+</style>

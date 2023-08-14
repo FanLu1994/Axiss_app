@@ -22,6 +22,6 @@ const onClickItem = ()=>{
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/css/components/MenuItem.scss";
+
 
 </style>
