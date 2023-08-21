@@ -1,8 +1,35 @@
 .menu-page{
-  background: #fafafa;
   height: 100vh;
+  background: #f3f4f5;
   display: flex;
-  padding: 10px 10px;
+  flex-direction: column;
+
+  .status-bar{
+    position: sticky;
+    height: 1.75rem;
+    background: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .desktop{
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .dock-bar{
+    position: absolute;
+    bottom:2rem;
+    height: 5rem;
+    width: 60rem;
+    left: 50%;
+    transform: translate(-50%,0);
+    background: white;
+    margin-left: auto;
+    border-radius: 20px;
+    padding: 2rem;
+  }
 
   .menu-item{
     display: flex;

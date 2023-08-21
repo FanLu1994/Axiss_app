@@ -15,6 +15,7 @@ import {marked} from "marked";
 import {ElMessage} from "element-plus";
 import Prism from 'prismjs'
 import {useFetch} from "#app";
+import {getWebTitle} from "~/api/api";
 
 const props = defineProps({
   rawText:{
@@ -52,11 +53,7 @@ const getAllLink = async ()=>{
   let linkList = []
   for (let i = 0; i < links.length; i++) {
     // TODO:添加元素到html
-    const { data, pending, error, refresh } = await useFetch("http://localhost:7777/md/get_website_title",{
-       query:{
-         url:links[i].href
-       }
-     })
+    const { data, pending, error, refresh } = await getWebTitle({url:links[i].href})
     console.log(data.value)
     console.log(data.value.result)
     console.log(error)

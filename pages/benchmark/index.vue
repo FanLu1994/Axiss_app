@@ -1,6 +1,13 @@
 <template>
-  <NuxtLink to="https://nuxtjs.org">
-  </NuxtLink>
+  <div class="menu-page">
+    <div class="status-bar">
+      状态栏
+    </div>
+    <div class="desktop">content</div>
+    <div class="dock-bar">
+      bottom
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -8,10 +15,6 @@ import Vue from 'vue'
 import {ref} from "vue";
 import MenuItem from "~/components/MenuItem.vue";
 import {menu} from "~/constant/menus"
-import {useRouter} from "vue-router";
-const router = useRouter()
-
-router.push("/benchmark")
 
 
 const hello = ref("Hello world!")
