@@ -1,12 +1,10 @@
 <template>
-  <div class="menu-page">
+  <div class="menu-page" id="benchmark">
     <div class="status-bar">
-      状态栏
+      状态栏1111
     </div>
     <div class="desktop">content</div>
-    <div class="dock-bar">
-      bottom
-    </div>
+    <Dock></Dock>
   </div>
 </template>
 
@@ -14,6 +12,7 @@
 import Vue from 'vue'
 import {ref} from "vue";
 import MenuItem from "~/components/MenuItem.vue";
+import Dock from "./component/Dock.vue"
 import {menu} from "~/constant/menus"
 
 
