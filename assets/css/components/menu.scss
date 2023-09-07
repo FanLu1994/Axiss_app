@@ -4,21 +4,32 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  background: url("https://blog-1258032198.cos.ap-shanghai.myqcloud.com/wallhaven-m9p7r8-tuya.jpg?q-sign-algorithm=sha1&q-ak=AKID0jNqUGT6Eqz9dTdiZ5KT2ox1Ac3XDl9Jv4EBQ1X9Amdu3Aih2CdRW5vgQA9DolBX&q-sign-time=1693138132;1693141732&q-key-time=1693138132;1693141732&q-header-list=host&q-url-param-list=ci-process&q-signature=89c6c9d9208995eaccfaca77ffca134dc2342b54&x-cos-security-token=0FrY60sw4hO0tjrNE6KmOcS4PInvRvYa9b07c3970feed4acb66ac457c185c198nuGpAfvtNwXGxkcfk6Q4b1o0pFMwDKW6A2hBR4y40pAydMj3Xs98bHl6-lWXeD50ITRtijVs48451beLoWo0UbE7HMrDuVeIV25SWgrCAEYfffgPcFzAK3gFVKZznmBdOpovs3RQ7Q4Ib2dVSSZO3DDRFBrTFHiknmTz2DpOCHPYOB1T150qBI8AbbzywQux&ci-process=originImage") no-repeat;
+  background: url("https://blog-1258032198.cos.ap-shanghai.myqcloud.com/wallhaven-72drx3-tuya.jpg");
   background-size: cover;
   overflow: hidden;
 
+  @font-face {
+    font-family: 'lexend';
+    font-weight: normal;
+    src: url('../../font/lexend-VariableFont_wght.ttf') format('truetype');
+  }
+  font-family: "Lexend", sans-serif;
+
   .status-bar{
-    position: sticky;
-    height: 1.5rem;
-    background: rgba(255,255,255,0.6);
     width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 10px var(--color-black-100);
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
-    background-size: cover;
-    background-clip: content-box;
-    color: white;
-    backdrop-filter: blur(5px);
+    justify-content: space-between;
+    z-index: 20;
+    animation: top-to-bottom 0.3s;
+    padding: 0.15rem 1rem 0.15rem 0.5rem;
+    font-size: 0.95rem;
   }
 
   .desktop{
@@ -33,12 +44,12 @@
     width: 60rem;
     left: 50%;
     transform: translate(-50%,10rem);
-    background: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.2);
     margin-left: auto;
     border-radius: 20px;
     padding: 2rem;
     transition: all 0.2s ease;
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(10px);
   }
 
 

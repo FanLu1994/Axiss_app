@@ -1,8 +1,6 @@
 <template>
   <div class="menu-page" id="benchmark">
-    <div class="status-bar">
-      状态栏1111
-    </div>
+    <status-bar></status-bar>
     <div class="desktop">content</div>
     <Dock></Dock>
   </div>
@@ -14,6 +12,7 @@ import {ref} from "vue";
 import MenuItem from "~/components/MenuItem.vue";
 import Dock from "./component/Dock.vue"
 import {menu} from "~/constant/menus"
+import StatusBar from "~/pages/benchmark/component/StatusBar.vue";
 
 
 const hello = ref("Hello world!")

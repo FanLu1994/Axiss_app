@@ -1,11 +1,11 @@
 <template>
-
   <div class="dock-bar" id="dock-bar">
     bottom1211
   </div>
 </template>
 <script setup>
 import {onMounted} from "vue";
+import StatusBar from "~/pages/benchmark/component/StatusBar";
 
 onMounted(()=>{
   document.getElementById("benchmark").addEventListener("mousemove",(event)=>{
