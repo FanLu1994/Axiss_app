@@ -1,9 +1,16 @@
 <template>
   <div class="status-bar">
-    <div>
-      选项
+    <div class="system-menu" >
+      <div>logo</div>
+      <div>终端</div>
+      <div>编辑</div>
+      <div>添加</div>
+
     </div>
     <div>
+      <span class="battery">100%</span>
+      <span class="wifi">wifi</span>
+      <span class="search">搜索</span>
       <span class="date">{{dateFormatter(now)}}</span>
       <span class="time">{{timeFormatter(now)}}</span>
     </div>
@@ -13,6 +20,10 @@
 import { useNow } from '@vueuse/core'
 
 const now = useNow()
+import { useBattery } from '@vueuse/core'
+
+const { charging, chargingTime, dischargingTime, level } = useBattery()
+
 
 const dateFormatter = (date)=>{
   const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -37,9 +48,14 @@ const timeFormatter = (date)=>{
 
 
 </script>
-<style scoped>
+<style scoped lang="scss">
 .time{
   margin-left: 1rem;
   /*margin-right: 1rem;*/
 }
+.battery, .wifi, .search{
+  margin-right: 1rem;
+}
+
+
 </style>

@@ -17,6 +17,6 @@ import StatusBar from "~/pages/benchmark/component/StatusBar.vue";
 
 const hello = ref("Hello world!")
 </script>
-<style scoped lang="scss">
+<style lang="scss">
 @import "@/assets/css/components/menu.scss";
 </style>

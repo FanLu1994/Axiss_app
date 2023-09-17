@@ -1,10 +1,13 @@
 <template>
   <div class="dock-bar" id="dock-bar">
-    bottom1211
+    <div class="dock-bar__item" v-for="(item,index) in menuItem.list"
+         :data="item">
+      {{item}}
+    </div>
   </div>
 </template>
 <script setup>
-import {onMounted} from "vue";
+import {onMounted,reactive} from "vue";
 import StatusBar from "~/pages/benchmark/component/StatusBar";
 
 onMounted(()=>{
@@ -18,6 +21,11 @@ onMounted(()=>{
     }
   })
 })
+
+const menuItem = reactive({
+  list:[1,2,3,4,5,6,7,8,9]
+})
+
 
 </script>
 <style scoped>
