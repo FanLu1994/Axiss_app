@@ -1,7 +1,8 @@
 <template>
-  <div class="bookmark-item ">
+  <div class="bookmark-item " @click="jump(bookmark.url)">
+
+    <img :src="bookmark.icon" alt="baidu">
     {{bookmark.name}}
-    {{bookmark.ID}}
   </div>
 </template>
 <script setup>
@@ -9,6 +10,10 @@
 defineProps({
   bookmark:{}
 })
+
+const jump = (url)=>{
+  window.open(url)
+}
 
 </script>
 <style scoped>
