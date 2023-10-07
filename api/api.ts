@@ -21,3 +21,7 @@ export const saveUrl = (params:any)=>{
 export const getUrls = (params:any)=>{
     return httpRequest.get("benchmark/get",params)
 }
+
+export const getTags = (params:any)=>{
+    return httpRequest.get("benchmark/tags",params)
+}

@@ -56,7 +56,8 @@ const addBookmark = ()=>{
   saveUrl(addBookmarkForm).then(res=>{
     console.log(res)
     if(res.data.code===200){
-
+      ElMessage.success("添加成功")
+      // TODO:刷新列表
     }
     showDialog.value = false
   })

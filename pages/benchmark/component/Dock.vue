@@ -1,7 +1,6 @@
 <template>
   <div class="dock-bar" id="dock-bar">
-    <div class="dock-bar__item" v-for="(item,index) in menuItem.list"
-         :data="item">
+    <div class="dock-bar__item" v-for="(item,index) in tags" :data="item">
       {{item}}
     </div>
   </div>
@@ -9,6 +8,10 @@
 <script setup>
 import {onMounted,reactive} from "vue";
 import StatusBar from "~/pages/benchmark/component/StatusBar";
+
+const props = defineProps({
+  tags:[]
+})
 
 onMounted(()=>{
   document.getElementById("benchmark").addEventListener("mousemove",(event)=>{

@@ -6,7 +6,7 @@
       <book-mark-item v-for="(item,index) in bookmarks" :bookmark="item"></book-mark-item>
       <div class="book-mark-placeholder" v-for="item in 10"></div>
     </div>
-    <Dock></Dock>
+    <Dock :tags="tags"></Dock>
   </div>
 </template>
 
@@ -19,16 +19,18 @@ import {menu} from "~/constant/menus"
 import StatusBar from "~/pages/benchmark/component/StatusBar.vue";
 import BookMarkItem from "~/pages/benchmark/component/BookMarkItem.vue";
 import AddBookMark from "~/pages/benchmark/component/AddBookMark.vue";
-import {getUrls} from "~/api/api";
+import {getUrls,getTags} from "~/api/api";
 
 onMounted(()=>{
   setTimeout(()=>{
     getBookMarks()
+    getTagList()
   },200)
 
 })
 
 const bookmarks = ref([])
+const tags = ref([])
 
 const getBookMarks = async ()=>{
   const result:any = await getUrls({
@@ -40,7 +42,17 @@ const getBookMarks = async ()=>{
     bookmarks.value = unref(result.data.value.data)
     console.log(bookmarks.value)
   }
+}
 
+const getTagList = async()=>{
+  const result:any = await getTags({
+    page:1,
+    size:20,
+  })
+  if(result.data.value){
+    tags.value = unref(result.data.value.tags)
+    console.log(tags.value)
+  }
 }
 
 </script>
